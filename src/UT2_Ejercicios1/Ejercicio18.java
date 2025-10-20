@@ -2,7 +2,7 @@ package UT2_Ejercicios1;
 
 public class Ejercicio18 {
 
-    static void main() {
+    public static void main(String[] args) {
 
         long numero = 1;
 

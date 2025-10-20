@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Ejercicio19 {
 
-    static void main() {
+    public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce un numero");
