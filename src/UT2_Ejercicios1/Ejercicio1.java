@@ -11,9 +11,9 @@ public class Ejercicio1 {
         double numero = sc.nextDouble();
 
         if (numero % 2 != 0) {
-            System.out.println("El numero es inpar");
+            System.out.println("El numero " + numero + " es inpar");
         } else {
-            System.out.println("El numero es par");
+            System.out.println("El numero " + numero + "  par");
         }
 
         sc.close();
