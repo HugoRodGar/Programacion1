@@ -1,4 +1,4 @@
-package Ejercicios_de_clase.Praticas_Clase;
+package Ejercicios_de_clase.EjerciciosIniciales;
 
 public class Ambitos {
 
