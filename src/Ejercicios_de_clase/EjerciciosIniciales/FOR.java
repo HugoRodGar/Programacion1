@@ -1,0 +1,14 @@
+package Ejercicios_de_clase.EjerciciosIniciales;
+
+public class FOR {
+
+    public static void main(String[] args) {
+
+        for (int i = 0; i <= 5; i += 2) {
+            System.out.println("hola");
+
+
+        }
+
+    }
+}

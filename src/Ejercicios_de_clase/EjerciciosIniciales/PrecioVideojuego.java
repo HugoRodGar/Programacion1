@@ -1,0 +1,17 @@
+package Ejercicios_de_clase.EjerciciosIniciales;
+
+public class PrecioVideojuego {
+
+    public static void main(String[] args) {
+
+        double ahorros = 2000;
+        double precioVideojuego1 = 79.90;
+
+        System.out.println("Tengo " + ahorros + "€ Ahorrados");
+        System.out.println("Me voy a comprar un videojuego que cuesta " + precioVideojuego1 + "€");
+
+        ahorros = ahorros - precioVideojuego1;
+        System.out.println("Al comprarlo me quedarian " + ahorros + "€");
+    }
+
+}
