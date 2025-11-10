@@ -7,7 +7,7 @@ public class Ejercicio8 {
     static void main() {
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Introduce una frase: ");
+        System.out.print("Introduce una frase");
         String frase = sc.nextLine();
 
         String cifrada = cifrar(frase);
