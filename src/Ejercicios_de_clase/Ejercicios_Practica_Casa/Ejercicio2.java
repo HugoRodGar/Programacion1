@@ -1,4 +1,4 @@
-package Ejercicios_Practica_Casa;
+package Ejercicios_de_clase.Ejercicios_Practica_Casa;
 
 import java.util.Scanner;
 

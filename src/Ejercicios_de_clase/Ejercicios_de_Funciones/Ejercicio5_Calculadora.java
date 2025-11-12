@@ -8,8 +8,8 @@ public class Ejercicio5_Calculadora {
 
     }
 
-    double calculadora() {
-        return;
+    static double calculadora() {
+        return 1;
     }
 
 }
