@@ -1,14 +1,8 @@
 package Tema2.UT2_Ejercicios4;
 
-/*
-Comprobar si un array de 5x5 es un cuadro mágico. Se considera un cuadro mágico aquel en el que las filas,
-las columnas y las diagonales suman igual.
- */
-
 public class Ejercicio8 {
     public static void main(String[] args) {
 
-        // Matriz del ejemplo (puedes cambiarla)
         int[][] m = {
                 {1, 5, 8, 24, 17},
                 {16, 14, 7, 5, 23},
@@ -17,9 +11,8 @@ public class Ejercicio8 {
                 {9, 2, 25, 18, 11}
         };
 
-        int n = 5; // tamaño del cuadro
+        int n = 5;
 
-        // 1. Sumar la primera fila → valor de referencia
         int sumaObjetivo = 0;
         for (int j = 0; j < n; j++) {
             sumaObjetivo += m[0][j];
@@ -27,7 +20,6 @@ public class Ejercicio8 {
 
         boolean esMagico = true;
 
-        // 2. Comprobar filas
         for (int i = 1; i < n; i++) {
             int sumaFila = 0;
             for (int j = 0; j < n; j++) {
@@ -39,7 +31,6 @@ public class Ejercicio8 {
             }
         }
 
-        // 3. Comprobar columnas
         for (int j = 0; j < n && esMagico; j++) {
             int sumaCol = 0;
             for (int i = 0; i < n; i++) {
@@ -51,7 +42,6 @@ public class Ejercicio8 {
             }
         }
 
-        // 4. Comprobar diagonal principal
         int sumaDiag1 = 0;
         for (int i = 0; i < n; i++) {
             sumaDiag1 += m[i][i];
@@ -60,7 +50,6 @@ public class Ejercicio8 {
             esMagico = false;
         }
 
-        // 5. Comprobar diagonal secundaria
         int sumaDiag2 = 0;
         for (int i = 0; i < n; i++) {
             sumaDiag2 += m[i][n - 1 - i];
@@ -69,7 +58,6 @@ public class Ejercicio8 {
             esMagico = false;
         }
 
-        // 6. Resultado final
         if (esMagico) {
             System.out.println("El array ES un cuadro mágico.");
         } else {
