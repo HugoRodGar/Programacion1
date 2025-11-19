@@ -1,15 +1,29 @@
-package Ejercicios4_Arrays;
+package Tema2.UT2_Ejercicios4;
 
-/*
-Crea un programa que mezcle dos arrays ordenados de N elementos, consiguiendo otro array de N*2 elementos igualmente ordenados.
- */
+import java.util.Arrays;
+import java.util.Random;
 
 public class Ejercicio9 {
 
     public static void main(String[] args) {
 
-        int[] A = {4, 8, 15, 22, 25, 40};
-        int[] B = {3, 6, 18, 21, 25, 47};
+        Random r = new Random();
+
+        int[] A = new int[5];
+        int[] B = new int[5];
+
+        for (int i = 0; i < A.length; i++) {
+            A[i] = r.nextInt(10);
+        }
+        for (int i = 0; i < B.length; i++) {
+            B[i] = r.nextInt(10);
+        }
+
+        Arrays.sort(A);
+        Arrays.sort(B);
+
+        System.out.println("Array A: " + Arrays.toString(A));
+        System.out.println("Array B: " + Arrays.toString(B));
 
         int nA = A.length;
         int nB = B.length;
@@ -20,7 +34,6 @@ public class Ejercicio9 {
         int j = 0; // índice de B
         int k = 0; // índice de C
 
-        // 1. Mezclar mientras haya elementos en A y B
         while (i < nA && j < nB) {
             if (A[i] < B[j]) {
                 C[k] = A[i];
@@ -32,24 +45,18 @@ public class Ejercicio9 {
             k++;
         }
 
-        // 2. Copiar lo que quede de A (si queda algo)
         while (i < nA) {
             C[k] = A[i];
             i++;
             k++;
         }
 
-        // 3. Copiar lo que quede de B (si queda algo)
         while (j < nB) {
             C[k] = B[j];
             j++;
             k++;
         }
 
-        // Mostrar el resultado
-        System.out.print("Array C: ");
-        for (int x = 0; x < C.length; x++) {
-            System.out.print(C[x] + " ");
-        }
+        System.out.print("Array C: " + Arrays.toString(C));
     }
 }

@@ -1,10 +1,5 @@
-package Ejercicios4_Arrays;
+package Tema2.UT2_Ejercicios4;
 
-/*
-Dado un array de 50 números entre 1 y 100, aleatorios, escribir una lista ordenada con los valores que no aparecen en el array.
- */
-
-import java.util.Arrays;
 import java.util.Random;
 
 public class Ejercicio5 {

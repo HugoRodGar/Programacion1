@@ -1,4 +1,4 @@
-package Ejercicios4_Arrays;
+package Tema2.UT2_Ejercicios4;
 
 /*
 Comprobar si un array de 5x5 es un cuadro mágico. Se considera un cuadro mágico aquel en el que las filas,
@@ -10,11 +10,11 @@ public class Ejercicio8 {
 
         // Matriz del ejemplo (puedes cambiarla)
         int[][] m = {
-                { 1, 5, 8, 24, 17 },
-                {16,14, 7,  5, 23 },
-                {20,21,13,  6,  4 },
-                { 3,19,12,  9, 10 },
-                { 9, 2,25, 18, 11 }
+                {1, 5, 8, 24, 17},
+                {16, 14, 7, 5, 23},
+                {20, 21, 13, 6, 4},
+                {3, 19, 12, 9, 10},
+                {9, 2, 25, 18, 11}
         };
 
         int n = 5; // tamaño del cuadro
