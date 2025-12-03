@@ -32,5 +32,10 @@ public class Operadores {
         System.out.println("Edad2 " + edad);
         System.out.println("Edad3 " + ++edad);
         System.out.println("Edad4 " + edad);
+
+
+        int Main = 1;
+
+
     }
 }
