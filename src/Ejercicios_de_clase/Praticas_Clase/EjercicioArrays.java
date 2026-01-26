@@ -15,6 +15,8 @@ public class EjercicioArrays {
             numero[i] = r.nextInt(10);
         }
 
+        Arrays.sort(numero);
+
         System.out.println(Arrays.toString(numero));
 
     }

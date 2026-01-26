@@ -6,10 +6,10 @@ public class Producto {
     private double precio;
     private int stock;
 
-    public Producto(String nombre, double precio, int stxock) {
+    public Producto(String nombre, double precio, int stock) {
         this.nombre = nombre;
         this.precio = precio;
-        this.stock = stxock;
+        this.stock = stock;
     }
 
     public String getNombre() {
@@ -51,7 +51,7 @@ public class Producto {
     }
 
     public void mostarInfo() {
-        System.out.printf("Nombre: " + nombre + "| Precio: " + precio + "| Stock: " + stock;
+        System.out.printf("Nombre: " + nombre + "| Precio: " + precio + "| Stock: " + stock);
     }
 
 }
