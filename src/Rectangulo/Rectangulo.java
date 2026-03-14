@@ -2,22 +2,22 @@ package Rectangulo;
 
 public class Rectangulo {
 
-    private int largo;
-    private int ancho;
+    private  int largo;
+    private  int ancho;
 
-    public Rectangulo() {
-        this(2, 5);
-    }
-
-    public Rectangulo(int ancho, int largo) {
-        if (ancho > 0 && largo > 0) {
-            this.ancho = ancho;
+    public Rectangulo(int largo, int ancho) {
+        if (largo > 0 && ancho > 0) {
             this.largo = largo;
+            this.ancho = ancho;
         } else {
-            this.ancho = 2;
-            this.largo = 5;
+            this.largo = 7;
+            this.ancho = 3;
         }
     }
+    public Rectangulo() {
+        this(7, 3);
+    }
+
 
     public int getLargo() {
         return largo;
@@ -39,35 +39,34 @@ public class Rectangulo {
         }
     }
 
-    public int area() {
-        return ancho * largo;
+    public int calcularArea() {
+        return largo * ancho;
     }
 
-    public int perimetro() {
-        return 2 * (ancho + largo);
+    public int calcularPerimetro() {
+        return (largo + ancho) * 2;
     }
 
-    public void tipo() {
-        if (ancho > largo) {
-            System.out.println("El rectangulo es vertical: ");
-        } else if (largo > ancho) {
-            System.out.println("El rectangulo es horizontal: ");
+    public void orientacion() {
+        if (largo > ancho) {
+            System.out.println("El rectangulo es horizontal");
+        } else if (largo < ancho) {
+            System.out.println("El rectangulo es vertical");
         } else {
-            System.out.println("Es un cuadrado");
+            System.out.println("El rectangulo es un cuadrado");
         }
     }
 
-    public void dimensiones() {
-        System.out.println("Largo: " + largo);
-        System.out.println("Ancho: " + ancho);
-    }
-
-    public void dibujoRectangulo() {
+    public void dibujar() {
         for (int i = 0; i < ancho; i++) {
             for (int j = 0; j < largo; j++) {
                 System.out.print("*");
             }
             System.out.println();
         }
+    }
+
+    public String mostrarValores() {
+        return "largo: " + largo + " | Ancho: " + ancho;
     }
 }
