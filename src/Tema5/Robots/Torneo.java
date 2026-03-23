@@ -1,4 +1,4 @@
-package Robots;
+package Tema5.Robots;
 
 public class Torneo {
     static void main(String[] args) {

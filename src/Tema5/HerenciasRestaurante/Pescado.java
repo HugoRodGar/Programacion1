@@ -1,4 +1,4 @@
-package HerenciasRestaurante;
+package Tema5.HerenciasRestaurante;
 
 public class Pescado extends Plato {
 

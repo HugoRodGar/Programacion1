@@ -1,4 +1,4 @@
-package Persona;
+package Tema5.Persona;
 
 import java.util.Scanner;
 
