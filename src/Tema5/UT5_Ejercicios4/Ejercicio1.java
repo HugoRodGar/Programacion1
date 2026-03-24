@@ -1,6 +1,4 @@
-package Tema5.Ejercicios4;
-
-import org.w3c.dom.ls.LSOutput;
+package Tema5.UT5_Ejercicios4;
 
 import java.util.HashSet;
 
