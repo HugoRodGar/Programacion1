@@ -1,9 +1,6 @@
 package Tema5.UT5_Ejercicios8;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Vuelos {
 
@@ -71,67 +68,70 @@ public class Vuelos {
 
     }
 
-    public static Set<String> getIdentificadoresVuelos(Map<String, Map<String, Double>> vuelosPasajerosCoste) {
+    public static Set<String> getIdentificadoresVuelos(
+            Map<String, Map<String, Double>> vuelosPasajerosCoste
+    ) {
         Set<String> identificadores = new HashSet<>(vuelosPasajerosCoste.keySet());
         return identificadores;
     }
 
-    public static Double getBilleteMasCaro(Map<String, Map<String, Double>> vuelosPasajerosCoste) {
-        Map<Sting>
-        return 0.0;
-    }
-
-    public static Map<String, Double> getPreciosMedios(Map<String, Map<String, Double>> vuelosPasajerosCoste) {
-        Map<String, Double> preciosMedios =
-
-        return null;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public static Map<String, Double> getGastoPorDNI(Map<String, Map<String, Double>> vuelosPasajerosCoste) {
-        Map<String, Double> GastoPorDNI = new HashMap<>();
-        for (for each) {
-            for (for each) {
-
+    public static Double getBilleteMasCaro(
+            Map<String, Map<String, Double>> vuelosPasajerosCoste
+    ) {
+        double PrecioMax = 0.0;
+        for (Map<String, Double> pasajeros : vuelosPasajerosCoste.values()) {
+            for (double precio : pasajeros.values()) {
+                if (precio > PrecioMax) {
+                    PrecioMax = precio;
+                }
             }
         }
-        return null;
+
+        return PrecioMax;
+
     }
 
+    public static Map<String, Double> getPreciosMedios(
+            Map<String, Map<String, Double>> vuelosPasajerosCoste
+    ) {
+        Map<String, Double> preciosMedios = new LinkedHashMap<>();
+        List<String> listaVuelos = new ArrayList<>(vuelosPasajerosCoste.keySet());
+        Collections.sort(listaVuelos);
+        for (String vuelo : listaVuelos) {
+            Map<String, Double> pasajeros = vuelosPasajerosCoste.get(vuelo);
+            double suma = 0.0;
+            for (double precio : pasajeros.values()) {
+                suma += precio;
+            }
+            double media = suma / pasajeros.size();
+            preciosMedios.put(vuelo, media);
+        }
 
+        return preciosMedios;
 
+    }
 
+    public static Map<String, Double> getGastoPorDNI(
+            Map<String, Map<String, Double>> vuelosPasajerosCoste
+    ) {
+        Map<String, Double> gastoPorDNI = new HashMap<>();
+        for (Map<String, Double> pasajeros : vuelosPasajerosCoste.values()) {
+            for (Map.Entry<String, Double> pasajero : pasajeros.entrySet()) {
+                String dni = pasajero.getKey();
+                double precio = pasajero.getValue();
+                gastoPorDNI.put(dni, gastoPorDNI.getOrDefault(dni, 0.0) + precio);
+            }
+        }
+
+        List<String> listaDnis = new ArrayList<>(gastoPorDNI.keySet());
+        Collections.sort(listaDnis);
+        Map<String, Double> gastoOrdenado = new LinkedHashMap<>();
+        for (String dni : listaDnis) {
+            gastoOrdenado.put(dni, gastoPorDNI.get(dni));
+        }
+
+        return gastoOrdenado;
+
+    }
 
 }
