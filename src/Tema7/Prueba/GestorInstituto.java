@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class GestorInstituto {
 
     public static void main(String[] args) {
-
         InstitutoDBDAO logica = new InstitutoDBDAO();
         logica.conectar();
 
@@ -32,6 +31,7 @@ public class GestorInstituto {
         }
 
         logica.desconectar();
+
     }
 }
 

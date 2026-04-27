@@ -34,9 +34,21 @@ public class InstitutoDBDAO {
             );
             pstmt.setString(1, nombre);
             pstmt.setString(2, email);
-            pstmt.executeUpdate();
+            int filas = pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error al insertar alumno: " + e.getMessage());
+        }
+    }
+
+    public void mostrarAlumnos() {
+        try {
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM alumnos");
+            while (rs.next()) {
+                System.out.println(rs.getInt("id") + " - " + rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al mostrar los alumnos, " + e.getMessage());
         }
     }
 }
