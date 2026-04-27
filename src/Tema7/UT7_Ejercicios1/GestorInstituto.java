@@ -21,44 +21,44 @@ public class GestorInstituto {
 
     public static void main(String[] args) {
         GestorInstituto gestor = new GestorInstituto();
-        // Aquí iremos probando los métodos paso a paso
 
         InstitutoDBDAO logica = new InstitutoDBDAO();
+        // Aquí iremos probando los métodos paso a paso
+
         logica.conectar();
         System.out.println("Estamos conectados a la base de datos");
 
-
-//        try {
-//            conexion.setAutoCommit(false);
-//            registrarAlumno("Rafa2", "rafa2@educa.jcyl.es");
-//            conexion.commit();
-//            registrarAlumno("Laura2", "laura@educa.jcyl.es");
-//            conexion.commit();
-//            registrarAlumno("Blanca2", "blanca@educa.jcyl.es");
-//            conexion.commit();
-//            System.out.println("");
-//        } catch (SQLException e) {
-//            System.err.println("Error al inserttar los alumnos :: " + e.getMessage());
-//            try {
-//                conexion.rollback();
-//            } catch (SQLException ex) {
-//                System.err.println("Error al hacer rollback :: " + ex.getMessage());
-//            }
-//        }
+        try {
+            logica.conexion.setAutoCommit(false);
+            logica.registrarAlumno("Rafa", "rafa@educa.jcyl.es");
+            logica.registrarAlumno("Laura", "laura@educa.jcyl.es");
+            logica.registrarAlumno("Blanca", "blanca@educa.jcyl.es");
+            logica.conexion.commit();
+        } catch (SQLException e) {
+            System.err.println("Error al insertar los alumnos, " + e.getMessage());
+            try {
+                logica.conexion.rollback();
+            } catch (SQLException ex) {
+                System.err.println("Error al hacer rollback, " + ex.getMessage());
+            }
+        }
 
         try {
-            matricularAlumno(7, 2);
+            logica.conexion.setAutoCommit(false);
+            logica.matricularAlumno(3, 1);
+            logica.conexion.commit();
         } catch (SQLException e) {
-            System.err.println();
+            System.err.println("Error al insertar la matricula, " + e.getMessage());
+            try {
+                logica.conexion.rollback();
+            } catch (SQLException ex) {
+                System.err.println("Error al hacer rollback, " + ex.getMessage());
+            }
         }
-        logica.mostrarAsignaturasDeAlumno(7);
-        logica.mostrarAsignaturasDeAlumno(7);
 
         logica.mostrarAlumnos();
-        logica.mostrarAsignaturas();
 
         logica.desconectar();
-
     }
 
 }

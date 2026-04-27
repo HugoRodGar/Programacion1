@@ -6,24 +6,14 @@ public class InstitutoDBDAO {
 
     Connection conexion;
 
-    public void mostrarAlumnos() {
-        try {
-            Statement stmt = conexion.createStatement();
-            ResultSet rs  stmt.executeQuery("SELECT * FROM alumnos");
-        } catch (SQLException e) {
-            System.out.println("Error :: " + e.getMessage());
-        }
-
-    }
-
     public void conectar() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conexion = DriverManager.getConnection(Constants.URL, Constants.USUARIO, Constants.PASSWORD);
         } catch (ClassNotFoundException e) {
-            System.err.println("No se ha encontrado al driver de MySQL :: " + e.getMessage());
+            System.err.println("No se ha encontrado el driver de MySQL, " + e.getMessage());
         } catch (SQLException e) {
-            System.err.println("Error de SQL al conectar :: " + e.getMessage());
+            System.err.println("Error de SQL al conectar, " + e.getMessage());
         }
     }
 
@@ -31,45 +21,41 @@ public class InstitutoDBDAO {
         try {
             conexion.close();
         } catch (SQLException e) {
-            System.err.println("Error de SQL al desconectar :: " + e.getMessage());
+            System.err.println("Error de SQL al desconectar, " + e.getMessage());
         }
     }
 
-
-    public void registrarAlumno(String nombre, String email) throws SQLException {
+    public void registrarAlumno(String nombre, String email) {
         try {
             PreparedStatement statement = conexion.prepareStatement("INSERT INTO Alumnos(nombre, email) VALUES (?, ?)");
             statement.setString(1, nombre);
             statement.setString(2, email);
             int filas = statement.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("Error al insertar un alumno :: " + e.getMessage());
-            throw e;
+            System.err.println("Error al instertar un alumno, " + e.getMessage());
         }
     }
 
-    public void matriculaAlumno(int idAlumno, int idAsignatura) {
+    public void matricularAlumno(int idAlumno, int idAsignatura) {
         try {
-            PreparedStatement statement = conexion.prepareStatement("INSERT INTO matriculas(idalumno, idasignatura) VALUES (?, ?)");
+            PreparedStatement statement = conexion.prepareStatement("INSERT INTO matriculas(id_alumno, id_asignatura) VALUES (?, ?)");
             statement.setInt(1, idAlumno);
             statement.setInt(2, idAsignatura);
             int filas = statement.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("Error al insertar un alumno :: " + e.getMessage());
-            throw e;
+            System.err.println("Error al instertar la matricula, " + e.getMessage());
         }
     }
 
-    public void mostrarAsignaturaDeAlumno(int idAlumno) {
+    public void mostrarAlumnos() {
         try {
-            PreparedStatement stmt = conexion.prepareStatement(""
-                    select alumnos.nombre as alumno
-                    statement.setInt(1, idAlumno);
-            statement.setInt(2, idAsignatura);
-            int filas = statement.executeUpdate();
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM alumnos");
+            while (rs.next()) {
+                System.out.println(rs.getInt("id") + " - " + rs.getString("nombre"));
+            }
         } catch (SQLException e) {
-            System.err.println("Error al insertar un alumno :: " + e.getMessage());
-            throw e;
+            System.err.println("Error al mostrar los alumnos, " + e.getMessage());
         }
     }
 
