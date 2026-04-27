@@ -4,11 +4,6 @@ import java.sql.*;
 
 public class GestorInstituto {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/instituto_db";
-    private static final String USUARIO = "root";
-    private static final String PASSWORD = ""; // Que cada alumno ponga la suya
-    private Connection conexion;
-
     // TODO Paso 1: Crear el método conectar() y desconectar()
     // Mantenemos una única conexión en toda la aplicación
 
@@ -27,7 +22,43 @@ public class GestorInstituto {
     public static void main(String[] args) {
         GestorInstituto gestor = new GestorInstituto();
         // Aquí iremos probando los métodos paso a paso
-    }
 
+        InstitutoDBDAO logica = new InstitutoDBDAO();
+        logica.conectar();
+        System.out.println("Estamos conectados a la base de datos");
+
+
+//        try {
+//            conexion.setAutoCommit(false);
+//            registrarAlumno("Rafa2", "rafa2@educa.jcyl.es");
+//            conexion.commit();
+//            registrarAlumno("Laura2", "laura@educa.jcyl.es");
+//            conexion.commit();
+//            registrarAlumno("Blanca2", "blanca@educa.jcyl.es");
+//            conexion.commit();
+//            System.out.println("");
+//        } catch (SQLException e) {
+//            System.err.println("Error al inserttar los alumnos :: " + e.getMessage());
+//            try {
+//                conexion.rollback();
+//            } catch (SQLException ex) {
+//                System.err.println("Error al hacer rollback :: " + ex.getMessage());
+//            }
+//        }
+
+        try {
+            matricularAlumno(7, 2);
+        } catch (SQLException e) {
+            System.err.println();
+        }
+        logica.mostrarAsignaturasDeAlumno(7);
+        logica.mostrarAsignaturasDeAlumno(7);
+
+        logica.mostrarAlumnos();
+        logica.mostrarAsignaturas();
+
+        logica.desconectar();
+
+    }
 
 }
